@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Inz</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic-icons.css">
+    <link rel="stylesheet" href="assets/css/Google-Style-Login-.css">
+    <link rel="stylesheet" href="assets/css/Hero-Carousel-images.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
+    <link rel="stylesheet" href="assets/css/Shop-item-styles.css">
+    <link rel="stylesheet" href="assets/css/Shop-item.css">
+    <link rel="stylesheet" href="assets/css/Sign-Up-Form---Gabriela-Carvalho.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="container" id="my-reservation">
+        <h2 class="text-center">Moja rezerwacja</h2><div class="container my-4">
+  <style>
+    .btn-danger-hover:hover {
+      background-color: #dc3545;
+      color: white;
+      border-color: #dc3545;
+    }
+    .edit-icon {
+      color: #6c757d;
+      cursor: pointer;
+      margin-left: 8px;
+      font-size: 18px;
+    }
+    .edit-icon:hover {
+      color: #343a40;
+    }
+  </style>
+
+  <!-- Odbiór i Zwrot -->
+  <div class="card shadow-sm rounded-3 mb-3" id="pickup-return-card">
+    <div class="card-body">
+      <div class="row align-items-start">
+        
+        <!-- Odbiór -->
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-2">
+            <i class="bi bi-geo-alt-fill text-danger me-2" style="font-size: 24px;"></i> 
+            <h5 class="mb-0">Odbiór
+              <i class="fas fa-edit edit-icon" data-bs-toggle="modal" data-bs-target="#odbiorModal"></i>
+            </h5>
+          </div>
+          <div id="pickup-location">
+            <div id="pickup-city">Warszawa</div>
+            <div id="pickup-street">Przyklad 1</div>
+            <strong id="pickup-date">2025-04-30</strong>,
+         <strong id="pickup-time">18:30</strong>
+          </div>
+        </div>
+
+        <!-- Zwrot -->
+        <div class="col-md-6 border-start ps-4">
+          <div class="d-flex align-items-center mb-2">
+            <i class="bi bi-geo-alt-fill text-danger me-2" style="font-size: 24px;"></i> 
+            <h5 class="mb-0">Zwrot
+              <i class="fas fa-edit edit-icon" data-bs-toggle="modal" data-bs-target="#zwrotModal"></i>
+            </h5>
+          </div>
+          <div id="return-location">
+            <div id="return-city">Berlin</div>
+            <div id="return-street">Przyklad 2</div>
+            <strong id="return-date">2025-10-30</strong>,
+            do godziny <strong id="return-time">18:30</strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Samochód -->
+  <div class="card shadow-sm rounded-3 mb-3">
+    <div class="card-body">
+      <div class="row align-items-center">
+
+        <div class="col-md-2">
+          <img src="assets/img/ford_fiesta.png" class="img-fluid rounded" alt="Samochód" style="max-width: 120px;">
+        </div>
+
+        <div class="col-md-4 ms-3">
+          <h5 class="mb-1">Ford Fiesta</h5>
+          <p class="mb-1" style="font-size: 14px;">Ford Fiesta 2016 to zwinny i ekonomiczny samochód miejski...</p>
+        </div>
+
+        <div class="col-md-2 text-success fw-bold">
+          Wynajem<br>+10000 PLN
+        </div>
+
+        <div class="col-md-3 d-flex justify-content-end">
+          <!-- Przycisk Usuń -->
+          <button class="btn btn-outline-danger btn-sm" onclick="deleteCar(this)">Usuń</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modale -->
+
+<!-- Modal - Edytuj Odbiór -->
+<div class="modal fade" id="odbiorModal" tabindex="-1" aria-labelledby="odbiorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="odbiorModalLabel">Edytuj Odbiór</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="pickupCityInput" class="form-label">Miasto</label>
+          <input type="text" class="form-control" id="pickupCityInput">
+        </div>
+        <div class="mb-3">
+          <label for="pickupStreetInput" class="form-label">Ulica</label>
+          <input type="text" class="form-control" id="pickupStreetInput">
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="pickupDateInput" class="form-label">Data</label>
+            <input type="date" class="form-control" id="pickupDateInput">
+          </div>
+          <div class="col">
+            <label for="pickupTimeInput" class="form-label">Godzina</label>
+            <input type="time" class="form-control" id="pickupTimeInput">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anuluj</button>
+        <button type="button" class="btn btn-primary" onclick="savePickup()">Zapisz</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal - Edytuj Zwrot -->
+<div class="modal fade" id="zwrotModal" tabindex="-1" aria-labelledby="zwrotModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="zwrotModalLabel">Edytuj Zwrot</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="returnCityInput" class="form-label">Miasto</label>
+          <input type="text" class="form-control" id="returnCityInput">
+        </div>
+        <div class="mb-3">
+          <label for="returnStreetInput" class="form-label">Ulica</label>
+          <input type="text" class="form-control" id="returnStreetInput">
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="returnDateInput" class="form-label">Data</label>
+            <input type="date" class="form-control" id="returnDateInput">
+          </div>
+          <div class="col">
+            <label for="returnTimeInput" class="form-label">Godzina</label>
+            <input type="time" class="form-control" id="returnTimeInput">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anuluj</button>
+        <button type="button" class="btn btn-primary" onclick="saveReturn()">Zapisz</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Skrypt -->
+<script>
+  // Funkcja do usuwania samochodu
+  function deleteCar(button) {
+    const carCard = button.closest('.card');  // Zawiera całą kartę samochodu
+    carCard.remove();  // Usuwa element samochodu
+  }
+
+  document.getElementById('odbiorModal').addEventListener('show.bs.modal', function () {
+    document.getElementById('pickupCityInput').value = document.getElementById('pickup-city').textContent;
+    document.getElementById('pickupStreetInput').value = document.getElementById('pickup-street').textContent;
+    document.getElementById('pickupDateInput').value = document.getElementById('pickup-date').textContent;
+    document.getElementById('pickupTimeInput').value = document.getElementById('pickup-time').textContent;
+  });
+
+  function savePickup() {
+    document.getElementById('pickup-city').textContent = document.getElementById('pickupCityInput').value;
+    document.getElementById('pickup-street').textContent = document.getElementById('pickupStreetInput').value;
+    document.getElementById('pickup-date').textContent = document.getElementById('pickupDateInput').value;
+    document.getElementById('pickup-time').textContent = document.getElementById('pickupTimeInput').value;
+
+    var modal = bootstrap.Modal.getInstance(document.getElementById('odbiorModal'));
+    modal.hide();
+
+    // Usuwanie tła przyciemnionego, jeśli zostało
+    var backdrop = document.querySelector('.modal-backdrop');
+    if (backdrop) {
+      backdrop.remove();
+    }
+  }
+
+  document.getElementById('zwrotModal').addEventListener('show.bs.modal', function () {
+    document.getElementById('returnCityInput').value = document.getElementById('return-city').textContent;
+    document.getElementById('returnStreetInput').value = document.getElementById('return-street').textContent;
+    document.getElementById('returnDateInput').value = document.getElementById('return-date').textContent;
+    document.getElementById('returnTimeInput').value = document.getElementById('return-time').textContent;
+  });
+
+  function saveReturn() {
+    document.getElementById('return-city').textContent = document.getElementById('returnCityInput').value;
+    document.getElementById('return-street').textContent = document.getElementById('returnStreetInput').value;
+    document.getElementById('return-date').textContent = document.getElementById('returnDateInput').value;
+    document.getElementById('return-time').textContent = document.getElementById('returnTimeInput').value;
+
+    var modal = bootstrap.Modal.getInstance(document.getElementById('zwrotModal'));
+    modal.hide();
+
+    // Usuwanie tła przyciemnionego, jeśli zostało
+    var backdrop = document.querySelector('.modal-backdrop');
+    if (backdrop) {
+      backdrop.remove();
+    }
+  }
+</script>
+
+    </div>
+<div class="card shadow-sm rounded-3 mb-4">
+  <div class="card-body text-center">
+    <h5 class="card-title mb-3">Wymagana weryfikacja wiedzy</h5>
+    <p class="card-text">
+      Aby przejść do procesu rezerwacji i wypożyczenia pojazdu, musisz najpierw zaliczyć test znajomości przepisów drogowych.
+    </p>
+    <p class="card-text text-muted" style="font-size: 14px;">
+      Test dostosowany jest do kraju, w którym chcesz wypożyczyć samochód. W przypadku niezaliczenia testu możesz podejść do niego ponownie po określonym czasie - 2 godziny.
+    </p>
+    <a href="test-page.html" class="btn btn-primary">Rozpocznij test</a>
+  </div>
+</div>
+
+    <footer class="text-center d-flex flex-column justify-content-center align-items-center" style="background: rgba(0,0,0,0);color: rgb(194,194,194);margin-top: 0;height: 200px;">
+        <div class="container text-muted py-4 py-lg-5">
+            <ul class="list-inline" style="font-size: 13px;color: rgb(255,255,255);">
+                <li class="list-inline-item me-4" style="margin-right: 0;"><a class="link-secondary" href="index.html" style="color: rgb(108, 117, 125);">Caroo&nbsp;</a></li>
+                <li class="list-inline-item me-4" style="margin-right: 0;"><a class="link-secondary" href="privacy.html">Privacy &amp; Legal&nbsp;</a></li>
+                <li class="list-inline-item"><a class="link-secondary" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/DateRangePicker-My-Date-Picker.js"></script>
+    <script src="assets/js/GoToOffert.js"></script>
+    <script src="assets/js/GoToOneCar.js"></script>
+    <script src="assets/js/GoToReservation.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="assets/js/log-in-out.js"></script>
+    <script src="assets/js/modal-first.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/personal-date.js"></script>
+    <script src="assets/js/price.js"></script>
+</body>
+
+</html>

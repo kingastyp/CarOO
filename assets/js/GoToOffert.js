@@ -1,0 +1,1 @@
+document.getElementById('GoToOffert').addEventListener('click',function(){window.location.href='offert.html';});

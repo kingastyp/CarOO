@@ -1,0 +1,1 @@
+document.getElementById('go-to-reservation').addEventListener('click',function(){window.location.href='car-reservation.html';});

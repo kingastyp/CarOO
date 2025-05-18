@@ -1,0 +1,214 @@
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url("../../assets/img/hero-mobile1.jpg") center / cover no-repeat;
+  color: var(--bs-dark);
+}
+
+@media (min-width: 768px) {
+  #hero {
+    width: 100%;
+    height: 100vh;
+    background: url("../../assets/img/hero.jpg") center / cover no-repeat;
+    color: var(--bs-dark);
+  }
+}
+
+#tittle {
+  font-size: 32px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+}
+
+#subtitles {
+  font-size: 40px;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  color: rgb(246,247,248);
+}
+
+#hero-top {
+  text-align: center;
+}
+
+.p-top {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  margin-bottom: 0;
+}
+
+.p-bot {
+  font-size: 13px;
+  font-family: Montserrat, sans-serif;
+}
+
+.with-borders {
+  border: 1px solid rgba(255,255,255,0.3);
+  border-top: rgba(255,255,255,0.27);
+  border-bottom: rgba(255,255,255,0.27);
+}
+
+.reserve-button {
+  width: 100%;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 30px;
+}
+
+#video-and-stats {
+  text-align: center;
+}
+
+#stats {
+  width: 90%;
+  font-size: 15px;
+  margin: 0 auto;
+  margin-bottom: 150px;
+}
+
+@media (min-width: 992px) {
+  #stats {
+    width: 600px;
+    font-size: 15px;
+    margin: 0 auto;
+    margin-bottom: 250px;
+  }
+}
+
+#interior {
+  width: 100%;
+  height: 60vh;
+}
+
+@media (min-width: 768px) {
+  #interior {
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+#vertical-line {
+  width: 1px;
+  background-color: rgba(203,203,203,0.72);
+  height: 120px;
+  margin-bottom: 50px;
+  margin-top: -180px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  overflow-x: hidden;
+}
+
+.card-bodyhover {
+}
+
+.card {
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease-in-out;
+}
+
+@media (min-width: 600px) {
+  #short-stats {
+    width: 150px;
+    margin: 0 auto;
+    font-size: 15px;
+  }
+}
+
+#short-stats {
+  width: 85%;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+#cell-left {
+  text-align: left;
+  font-weight: bold;
+}
+
+#cell-right {
+  text-align: right;
+}
+
+.cell-left {
+  text-align: left;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.cell-right {
+  text-align: right;
+  padding-right: 0px;
+}
+
+.car-img-fixed {
+}
+
+.card-img-fit {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.card-fix {
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .img-cover {
+    height: 250px;
+  }
+}
+
+.img-cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.offer-img {
+  object-fit: cover;
+}
+
+offer-img-wrapper {
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.offer-img-wrap {
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

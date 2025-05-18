@@ -1,0 +1,1 @@
+document.getElementById('zobacz-oferte-1').addEventListener('click',function(){window.location.href='one-car.html';});

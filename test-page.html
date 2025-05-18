@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Inz</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Footer-Basic-icons.css">
+    <link rel="stylesheet" href="assets/css/Google-Style-Login-.css">
+    <link rel="stylesheet" href="assets/css/Hero-Carousel-images.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
+    <link rel="stylesheet" href="assets/css/Shop-item-styles.css">
+    <link rel="stylesheet" href="assets/css/Shop-item.css">
+    <link rel="stylesheet" href="assets/css/Sign-Up-Form---Gabriela-Carvalho.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body><script>
+  window.addEventListener('load', function() {
+    var myModal = new bootstrap.Modal(document.getElementById('instruction-modal'));
+    myModal.show();
+  });
+</script>
+
+    <div class="modal fade" role="dialog" tabindex="-1" id="instruction-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="font-family: Montserrat, sans-serif;font-weight: bold;">Instrukcja przed rozpoczęciem testu</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Aby przejść do procesu rezerwacji i wypożyczenia pojazdu, musisz najpierw zaliczyć test znajomości przepisów drogowych.</p>
+                    <h5>Co musisz wiedzieć przed rozpoczęciem:&nbsp;</h5>
+                    <ul>
+                        <li>Test składa się z <strong>8 losowo wybranych pytań</strong> dotyczących przepisów drogowych obowiązujących w kraju, w którym chcesz wypożyczyć pojazd.</li>
+                        <li>Każde pytanie ma <strong>jedną poprawną odpowiedź</strong>.</li>
+                        <li>Aby zaliczyć test, musisz odpowiedzieć poprawnie na <strong>minimum 6 z 8 pytań</strong>.</li>
+                        <li><strong>Nie ma ograniczenia czasowego</strong> na rozwiązanie testu.</li>
+                        <li>W przypadku niezaliczenia testu, możesz podejść do niego ponownie po 2 godzinach.</li>
+                        <li>Wynik testu zostanie wyświetlony od razu po jego zakończeniu.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button" data-bs-dismiss="modal">OK</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-family: Montserrat, sans-serif;">Ten test będzie sprawdzeniem wiedzy przepisów drogowych w kraju:</td>
+                    <td id="countryName" style="font-family: Montserrat, sans-serif;font-weight: bold;"><strong>POLSKA</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div><div id="mainContainer" class="container mt-5">
+  <!-- Przycisk Rozpocznij test -->
+  <button id="startBtn" class="btn btn-primary btn-lg shadow rounded-pill fw-bold btn-hover" onclick="startTest()">Rozpocznij test</button>
+
+<style>
+  .btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+</style>
+
+
+  <!-- Kontener z testem (ukryty na starcie) -->
+  <div id="testContainer" style="display: none; margin-top: 30px;">
+    <h2>Test znajomości przepisów drogowych</h2>
+    <form id="testForm">
+      <!-- Pytanie 1 -->
+      <div class="mb-4">
+        <label>1. Jaki jest limit prędkości w terenie zabudowanym?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" id="q1a" value="A">
+          <label class="form-check-label" for="q1a">A) 50 km/h</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" id="q1b" value="B">
+          <label class="form-check-label" for="q1b">B) 60 km/h</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" id="q1c" value="C">
+          <label class="form-check-label" for="q1c">C) 70 km/h</label>
+        </div>
+      </div>
+
+      <!-- Pytanie 2 -->
+      <div class="mb-4">
+        <label>2. Jaka jest maksymalna dopuszczalna zawartość alkoholu we krwi kierowcy?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" id="q2a" value="A">
+          <label class="form-check-label" for="q2a">A) 0.5‰</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" id="q2b" value="B">
+          <label class="form-check-label" for="q2b">B) 0.2‰</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" id="q2c" value="C">
+          <label class="form-check-label" for="q2c">C) 0.8‰</label>
+        </div>
+      </div>
+
+      <!-- Pytanie 3 -->
+      <div class="mb-4">
+        <label>3. Co oznacza znak STOP?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" id="q3a" value="A">
+          <label class="form-check-label" for="q3a">A) Ustąp pierwszeństwa przejazdu</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" id="q3b" value="B">
+          <label class="form-check-label" for="q3b">B) Zakaz wjazdu</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" id="q3c" value="C">
+          <label class="form-check-label" for="q3c">C) Obowiązkowe zatrzymanie się</label>
+        </div>
+      </div>
+
+      <!-- Pytanie 4 -->
+      <div class="mb-4">
+        <label>4. Jakie światła należy włączyć w tunelu?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" id="q4a" value="A">
+          <label class="form-check-label" for="q4a">A) Światła mijania</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" id="q4b" value="B">
+          <label class="form-check-label" for="q4b">B) Światła drogowe</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q4" id="q4c" value="C">
+          <label class="form-check-label" for="q4c">C) Światła pozycyjne</label>
+        </div>
+      </div>
+
+      <!-- Pytanie 5 -->
+      <div class="mb-4">
+        <label>5. Kiedy można wyprzedzać na przejściu dla pieszych?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" id="q5a" value="A">
+          <label class="form-check-label" for="q5a">A) Tylko jeśli nie ma pieszych</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" id="q5b" value="B">
+          <label class="form-check-label" for="q5b">B) Nigdy</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" id="q5c" value="C">
+          <label class="form-check-label" for="q5c">C) Jeśli przejście jest oznaczone światłami</label>
+        </div>
+      </div>
+
+      <!-- Pytanie 6 -->
+      <div class="mb-4">
+        <label>6. Co oznacza żółty sygnał świetlny?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" id="q6a" value="A">
+          <label class="form-check-label" for="q6a">A) Zatrzymaj się, jeśli możesz</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" id="q6b" value="B">
+          <label class="form-check-label" for="q6b">B) Można jechać z ostrożnością</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q6" id="q6c" value="C">
+          <label class="form-check-label" for="q6c">C) Koniec ograniczeń</label>
+        </div>
+      </div>
+
+      <!-- Pytanie 7 -->
+      <div class="mb-4">
+        <label>7. Kto ma pierwszeństwo na skrzyżowaniu równorzędnym?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" id="q7a" value="A">
+          <label class="form-check-label" for="q7a">A) Pojazd z prawej strony</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" id="q7b" value="B">
+          <label class="form-check-label" for="q7b">B) Pojazd z lewej strony</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q7" id="q7c" value="C">
+          <label class="form-check-label" for="q7c">C) Tramwaj</label>
+        </div>
+      </div>
+
+      <!-- Pytanie 8 -->
+      <div class="mb-4">
+        <label>8. Jak oznaczony jest zakaz zatrzymywania się?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" id="q8a" value="A">
+          <label class="form-check-label" for="q8a">A) Znak z niebieskim tłem i czerwoną przekreśloną linią</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" id="q8b" value="B">
+          <label class="form-check-label" for="q8b">B) Znak z czerwonym krzyżem na niebieskim tle</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q8" id="q8c" value="C">
+          <label class="form-check-label" for="q8c">C) Znak STOP</label>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-success" onclick="checkAnswers()">Zakończ test</button>
+    </form>
+
+    <div id="result" class="mt-4 alert alert-info" style="display:none;"></div>
+  </div>
+
+
+<!-- Modal Wyniku -->
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resultModalLabel">Wynik testu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+      </div>
+      <div class="modal-body text-center" id="resultModalBody">
+        <!-- Tu wstawiamy treść wyniku dynamicznie -->
+      </div>
+      <div class="modal-footer justify-content-center" id="resultModalFooter">
+        <!-- Tu dynamicznie pojawi się przycisk w zależności od wyniku -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function startTest() {
+  document.getElementById('testContainer').style.display = 'block';
+  document.getElementById('startBtn').style.display = 'none';
+}
+
+function checkAnswers() {
+  const correctAnswers = {
+    q1: 'A',
+    q2: 'B',
+    q3: 'C',
+    q4: 'A',
+    q5: 'B',
+    q6: 'A',
+    q7: 'A',
+    q8: 'B'
+  };
+let score = 0;
+  for (let q in correctAnswers) {
+    const selected = document.querySelector(`input[name="${q}"]:checked`);
+    if (selected && selected.value === correctAnswers[q]) {
+      score++;
+    }
+  }
+
+  const resultBody = document.getElementById('resultModalBody');
+  const resultFooter = document.getElementById('resultModalFooter');
+
+  if (score >= 6) {
+    resultBody.innerHTML = `<p class="fs-5">Gratulacje! Zdałeś test z wynikiem <strong>${score}/8</strong>.</p>`;
+    resultFooter.innerHTML = `<a href="end-reservation.html" class="btn btn-success w-100">Podsumowanie rezerwacji</a>`;
+  } else {
+    resultBody.innerHTML = `<p class="fs-5">Niestety nie zdałeś. Twój wynik to <strong>${score}/8</strong>. Spróbuj ponownie za 2 godziny.</p>`;
+    resultFooter.innerHTML = `<a href="car-reservation.html" class="btn btn-secondary w-50">Ok</a>`;
+  }
+
+  var resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+  resultModal.show();
+}
+</script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/DateRangePicker-My-Date-Picker.js"></script>
+    <script src="assets/js/GoToOffert.js"></script>
+    <script src="assets/js/GoToOneCar.js"></script>
+    <script src="assets/js/GoToReservation.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="assets/js/log-in-out.js"></script>
+    <script src="assets/js/modal-first.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/personal-date.js"></script>
+    <script src="assets/js/price.js"></script>
+</body>
+
+</html>
